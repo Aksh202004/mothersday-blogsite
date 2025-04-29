@@ -19,29 +19,30 @@ const ContactPage = () => {
             src="/images/placeholder.png"
             alt="Contact illustration"
             className="contact-image"
+            draggable="false" 
           />
-          <p className="contact-text">{placeholderText}</p>
+          <p className="contact-text" draggable="false">{placeholderText}</p>
         </div>
 
         <div className="contact-right-column">
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group form-group-half">
-                <label htmlFor="name">Your Name</label>
-                <input type="text" id="name" name="name" required />
+                {/* <label htmlFor="name">Your Name</label> */}
+                <input type="text" id="name" name="name" placeholder="Your Name" required />
               </div>
               <div className="form-group form-group-half">
-                <label htmlFor="email">Your Email</label>
-                <input type="email" id="email" name="email" required />
+                {/* <label htmlFor="email">Your Email</label> */}
+                <input type="email" id="email" name="email" placeholder="Your Email" required />
               </div>
             </div>
             <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input type="text" id="subject" name="subject" required />
+              {/* <label htmlFor="subject">Subject</label> */}
+              <input type="text" id="subject" name="subject" placeholder="Subject" required />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Your message</label>
-              <textarea id="message" name="message" rows="6" required></textarea>
+              {/* <label htmlFor="message">Your message</label> */}
+              <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
             </div>
             <button type="submit" className="contact-submit-button">Send</button>
           </form>

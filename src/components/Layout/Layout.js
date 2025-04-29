@@ -48,7 +48,8 @@ const Layout = ({ children }) => {
   return (
     // Provide the search query value to the context
     <SearchContext.Provider value={{ searchQuery }}>
-      <div className="layout">
+      {/* Add draggable="false" to the main layout div */}
+      <div className="layout" draggable="false">
         <Header
           searchQuery={searchQuery}
           onSearchQueryChange={handleSearchQueryChange}

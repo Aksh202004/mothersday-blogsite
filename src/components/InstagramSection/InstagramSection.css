@@ -1,22 +1,24 @@
 .instagram-section {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: 1px solid #e5e7eb;
+  
 }
 
-.instagram-container {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
+
 
 
 .follow-button-wrapper {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 1.5rem;
+  
+  padding-left: 1rem;
+  padding-right: 1rem;
+  
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+  
+  margin-bottom: 0rem; 
 }
 
 .follow-instagram-button {
@@ -24,6 +26,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 0;
+
   font-size: 0.875rem;
   padding: 0.6rem 1rem;
   border: 1px solid black;
@@ -70,6 +73,13 @@
   font-size: 1.5rem;
 }
 
+
+.instagram-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block; 
+}
 
 .hover-overlay {
   position: absolute;

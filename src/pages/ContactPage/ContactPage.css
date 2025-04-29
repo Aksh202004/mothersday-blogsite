@@ -4,19 +4,19 @@
 }
 
 .contact-page-title {
-  font-size: 2.5rem; /* Match Categories page title */
+  font-size: 2.5rem; 
   font-weight: bold;
   margin-bottom: 40px;
   text-align: left;
   color: #333;
-  font-family: serif; /* Match other titles */
+  font-family: serif; 
 }
 
 .contact-content-area {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns */
-  gap: 50px; /* Adjust gap between columns */
-  align-items: start; /* Align items to the top */
+  grid-template-columns: 1fr 1fr;
+  gap: 50px; 
+  align-items: start; 
 }
 
 .contact-left-column {
@@ -27,10 +27,14 @@
   width: 100%;
   height: auto;
   display: block;
-  background-color: #f0f0f0; /* Placeholder background */
+  background-color: #f0f0f0; 
   margin-bottom: 25px;
-  aspect-ratio: 4 / 3; /* Maintain aspect ratio */
-  object-fit: cover; /* Cover the area */
+  aspect-ratio: 4 / 3; 
+  object-fit: cover; 
+  user-select: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
 }
 
 .contact-text {
@@ -50,36 +54,34 @@
 
 .form-row {
   display: flex;
-  gap: 20px; /* Gap between name and email */
+  gap: 20px; 
   margin-bottom: 20px;
 }
 
 .form-group {
   margin-bottom: 20px;
-  width: 100%; /* Full width by default */
+  width: 100%; 
 }
 
 .form-group-half {
-  width: 50%; /* Half width for name/email */
+  width: 50%; 
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 8px;
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: 500;
-}
+
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group textarea {
+  user-select: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none;
   width: 100%;
-  padding: 10px 0; /* Padding only top/bottom */
-  border: none; /* Remove default border */
-  border-bottom: 1px solid #ccc; /* Underline style */
+  padding: 10px 0; 
+  border: none; 
+  border-bottom: 1px solid #ccc; 
   font-size: 1rem;
-  background-color: transparent; /* Ensure no background */
+  background-color: transparent; 
   transition: border-color 0.2s ease-in-out;
 }
 
@@ -87,11 +89,11 @@
 .form-group input[type="email"]:focus,
 .form-group textarea:focus {
   outline: none;
-  border-bottom-color: #333; /* Darker underline on focus */
+  border-bottom-color: #333;
 }
 
 .form-group textarea {
-  resize: vertical; /* Allow vertical resize */
+  resize: vertical; 
   min-height: 100px;
 }
 
@@ -104,7 +106,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s;
-  align-self: flex-start; /* Align button to the left */
+  align-self: flex-start; 
   margin-top: 10px;
 }
 
@@ -112,7 +114,7 @@
   background-color: #333;
 }
 
-/* Responsive adjustments */
+
 @media (max-width: 992px) {
   .contact-content-area {
     gap: 30px;
@@ -121,18 +123,18 @@
 
 @media (max-width: 768px) {
   .contact-content-area {
-    grid-template-columns: 1fr; /* Stack columns */
+    grid-template-columns: 1fr; 
   }
   .contact-left-column {
-    margin-bottom: 40px; /* Add space below left column when stacked */
+    margin-bottom: 40px; 
   }
   .form-row {
-    flex-direction: column; /* Stack name and email */
-    gap: 0; /* Remove gap when stacked */
+    flex-direction: column; 
+    gap: 0; 
     margin-bottom: 0;
   }
   .form-group-half {
     width: 100%;
-    margin-bottom: 20px; /* Add margin back */
+    margin-bottom: 20px; 
   }
 }

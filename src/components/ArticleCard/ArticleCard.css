@@ -7,8 +7,8 @@
   display: flex; 
   flex-direction: row; 
   gap: 25px; 
-  border-bottom: 1px solid #eee; 
-  padding-bottom: 30px; 
+  border-bottom: 0px solid #eee; 
+  padding-bottom: -1px; 
 }
 
 .article-card:hover {
@@ -25,10 +25,10 @@
 
 .card-image {
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 3; 
-  object-fit: cover;
-  background-color: #f0f0f0; 
+  height: 200px; 
+  aspect-ratio: 4 / 3;
+  object-fit: cover; 
+  background-color: #f0f0f0;
 }
 
 .card-content {
@@ -52,13 +52,13 @@
   letter-spacing: 0.5px;
 }
 
-.card-category::after { /* Separator */
+.card-category::after { 
   content: '·';
   margin: 0 5px;
 }
 
 .card-reading-time-meta {
-  display: inline; /* Keep on same line */
+  display: inline; 
   font-size: 0.8rem;
   color: #888;
   text-transform: uppercase;

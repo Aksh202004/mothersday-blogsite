@@ -1,29 +1,21 @@
 .carousel-container {
   position: relative;
   width: 100%;
-  /* Remove max-width to allow full-width potential */
-  /* max-width: 900px; */
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 0; /* No border-radius in sketch */
-  box-shadow: none; /* No shadow in sketch */
-  background-color: #e0e0e0; /* Lighter Placeholder background */
-  /* Set height to fill viewport or a large fixed amount */
-  height: 600px; /* Example: Large fixed height */
-  /* Or use viewport height: height: 100vh; */
-  /* display: flex; */ /* Remove flex alignment */
-  /* align-items: flex-end; */ /* Remove flex alignment */
-  /* padding-bottom: 5%; */ /* Remove flex alignment */
+  border-radius: 0; 
+  box-shadow: none; 
+  background-color: #e0e0e0; 
+  height: 600px; 
 }
 
 .carousel-slide {
-  position: relative; /* For absolute positioning of caption */
+  position: relative; 
   width: 100%;
-  height: 100%; /* Ensure slide takes full container height */
+  height: 100%; 
 }
 
 .carousel-image {
-  /* Make image cover the background */
   position: absolute;
   top: 0;
   left: 0;
@@ -35,10 +27,10 @@
 }
 
 .carousel-caption {
-  
+
   position: absolute;
-  bottom: 5%;
-  left: 5%; 
+  bottom: 0%; 
+  left: 12%; 
   z-index: 2; 
   background: none; 
   color: #000; 

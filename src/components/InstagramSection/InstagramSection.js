@@ -26,9 +26,7 @@ const InstagramSection = () => {
         <div className="instagram-grid">
           {posts.map((stats, i) => (
             <div key={i} className="instagram-grid-item">
-              <div className="image-placeholder">
-                <span>🖼️</span>
-              </div>
+              <img src="/images/placeholder.png" alt="Instagram post placeholder" className="instagram-image" />
               <div className="hover-overlay">
                 <div className="overlay-content">
                   <div className="stats-item">
