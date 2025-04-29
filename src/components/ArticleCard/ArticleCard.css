@@ -121,3 +121,45 @@
   background-color: #333;
   color: #fff;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .article-card {
+    flex-direction: column; /* Stack image and content vertically */
+    gap: 15px; /* Reduce gap */
+  }
+  .card-image-link {
+    width: 100%; /* Image takes full width */
+    height: 180px; /* Slightly reduce height */
+  }
+  .card-image {
+    height: 100%; /* Fill the container height */
+  }
+  .card-title {
+    font-size: 1.3rem; /* Slightly smaller title */
+  }
+  .card-excerpt {
+    font-size: 0.9rem; /* Slightly smaller excerpt */
+  }
+}
+
+@media (max-width: 576px) {
+  .card-image-link {
+    height: 150px; /* Further reduce image height */
+  }
+  .card-title {
+    font-size: 1.1rem; /* Smaller title */
+    margin-bottom: 8px;
+  }
+  .card-excerpt {
+    font-size: 0.85rem; /* Smaller excerpt */
+    margin-bottom: 15px;
+  }
+  .card-category, .card-reading-time-meta {
+    font-size: 0.75rem; /* Smaller meta text */
+  }
+  .read-more-link {
+    padding: 6px 12px; /* Smaller button */
+    font-size: 0.75rem;
+  }
+}
