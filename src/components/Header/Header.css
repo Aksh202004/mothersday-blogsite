@@ -1,0 +1,146 @@
+.header {
+  background-color: rgba(255, 255, 255, 0);
+  padding: 15px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  color: #000;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+  width: 40px;
+  height: 40px;
+}
+
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menu-toggle {
+  font-size: 1.5rem;
+}
+
+.search-button {
+  font-size: 1.2rem;
+}
+
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: serif;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+  position: relative;
+}
+
+.search-input-container.search-fixed {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 101;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  margin-right: 0;
+}
+
+
+.search-input {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+  font-size: 0.9rem;
+  transition: width 0.3s ease-in-out;
+  width: 150px;
+  border-right: none;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.clear-search-button {
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: #666;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #fff;
+}
+
+.clear-search-button:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+
+.header.menu-open {
+  background-color: #000;
+  transition: background-color 0.3s ease;
+}
+
+.header.menu-open .icon-button,
+.header.menu-open .logo {
+  color: #fff;
+}
+
+.header.menu-open .icon-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}

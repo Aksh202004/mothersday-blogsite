@@ -1,0 +1,159 @@
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  /* Position below the header (adjust top value based on actual header height) */
+  top: 70px; /* Example: Assuming header is roughly 70px */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px); /* Full height minus header */
+  background-color: rgba(0, 0, 0, 0.95); /* Dark overlay */
+  z-index: 999; /* Below header (z-index 100) but above content */
+  display: flex;
+  /* Remove alignment/justification for full overlay content */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Add class when open */
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu-content {
+  position: relative;
+  /* text-align: center; */ /* Remove center alignment */
+  padding: 40px 60px; /* Adjust padding */
+  width: 100%; /* Take full width */
+  height: 100%; /* Take full height */
+  display: grid; /* Use grid for two columns */
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 40px;
+  align-items: center; /* Vertically align content in columns */
+}
+
+/* Remove close button styles */
+
+.mobile-menu-left {
+  /* Styles for left column (nav) */
+  text-align: left; /* Align nav links left */
+}
+
+.mobile-menu-right {
+ /* Styles for right column (newsletter) */
+  display: flex;
+  justify-content: center; /* Center newsletter box */
+  align-items: center;
+}
+
+/* Adjust newsletter box for context */
+.mobile-menu-right .newsletter-box {
+  /* Default width behavior - will be constrained by media query */
+  
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.05); /* Subtle background */
+  padding: 25px 30px; /* Reduced vertical padding */
+  border: 1px solid #444;
+  /* Removed flex properties that forced vertical stacking */
+}
+.mobile-menu-right .newsletter-title {
+  color: #fff; /* Ensure title is white */
+  text-align: center;
+}
+.mobile-menu-right .newsletter-description {
+  text-align: center;
+}
+
+/* Override conflicting display rule from Sidebar.css */
+.mobile-menu-right .newsletter-form {
+  display: flex; /* Ensure flex display in mobile menu context */
+  align-items: flex-end; /* Explicitly set flex-end alignment for this context */
+  gap: 1rem; /* Ensure gap is also applied */
+  width: 100%; /* Ensure form takes full width within its container */
+}
+
+
+.mobile-menu-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+.mobile-menu-nav li {
+  margin-bottom: 25px; /* Space between links */
+}
+
+.mobile-menu-nav a {
+  color: #aaa; /* Greyish color for inactive links */
+  text-decoration: none;
+  font-size: 2.2rem; /* Large font size */
+  font-weight: 500;
+  transition: color 0.2s ease;
+  display: block; /* Make links block for full width click */
+  position: relative;
+  padding: 5px 0; /* Add some padding */
+}
+
+
+.mobile-menu-nav a:hover {
+  color: #fff; /* White on hover */
+}
+
+/* Style for the active link */
+.mobile-menu-nav a.active {
+  color: #fff; /* White color for active link */
+  font-weight: bold;
+}
+
+/* Line indicator for active link */
+.mobile-menu-nav a.active::before {
+  content: '';
+  position: absolute;
+  left: -30px; /* Adjust position */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px; /* Adjust length */
+  height: 2px;
+  background-color: #fff;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .mobile-menu-content.two-column {
+    grid-template-columns: 1fr; /* Stack columns */
+    align-items: start;
+    padding: 30px 40px;
+  }
+  .mobile-menu-right {
+    margin-top: 40px; /* Add space above newsletter when stacked */
+    justify-content: flex-start; /* Align left when stacked */
+  }
+   .mobile-menu-right .newsletter-box {
+     /* Apply max-width constraint on smaller screens */
+     max-width: 300px;
+     /* Center the box itself within the right column when stacked */
+     margin-left: auto;
+     margin-right: auto;
+   }
+   .mobile-menu-nav a {
+     font-size: 1.8rem;
+   }
+   .mobile-menu-nav a.active::before {
+     left: -25px;
+     width: 20px;
+   }
+}
+
+@media (max-width: 576px) {
+  .mobile-menu-content.two-column {
+    padding: 20px 30px;
+  }
+  .mobile-menu-nav a {
+    font-size: 1.6rem;
+  }
+}

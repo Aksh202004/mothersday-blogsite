@@ -1,0 +1,38 @@
+/* Add overall padding using the existing container class */
+.categories-page.container {
+  padding-top: 40px; /* Add padding from the header */
+  padding-bottom: 40px;
+}
+
+.categories-page-title {
+  font-size: 2.5rem; /* Large title */
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: left; /* Align to the left like the image */
+  color: #333;
+}
+
+.category-group {
+  margin-bottom: 50px; /* Space between category sections */
+}
+
+.category-group-title {
+  font-size: 1.8rem; /* Title for each category */
+  font-weight: 600;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee; /* Subtle separator */
+  color: #444;
+}
+
+/* Styles for .category-article-list and its children are removed as they are now handled by ArticleCarousel.css */
+
+/* Responsive adjustments for page title */
+@media (max-width: 768px) {
+  .categories-page-title {
+    font-size: 2rem;
+  }
+  /* Category group title styling is now handled within ArticleCarousel.css */
+}
+
+/* Further responsive adjustments are handled within ArticleCarousel.css */

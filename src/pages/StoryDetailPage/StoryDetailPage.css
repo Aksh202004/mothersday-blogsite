@@ -1,0 +1,313 @@
+.story-detail-page {
+  /* No specific styles needed for the main wrapper itself */
+}
+
+/* Full Width Header Image */
+.article-header-image {
+  width: 100%;
+  height: 60vh; /* Adjust height as needed, e.g., 60% of viewport height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Optional: Add a subtle overlay */
+  /* position: relative; */
+}
+/* Optional overlay example: */
+/* .article-header-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+} */
+
+/* Overlapping Content Box */
+.article-content-box {
+  background-color: #fff; /* White background */
+  padding: 3rem; /* Add significant padding */
+  margin-top: -10vh; /* Negative margin to overlap the image (adjust as needed) */
+  position: relative; /* Needed for stacking context if header image had overlay */
+  z-index: 1; /* Ensure it's above the image */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  /* Container class handles max-width and centering */
+}
+
+/* REMOVED - Adjust margin when there's no header image */
+/* .article-content-box.no-header-image { ... } */
+
+
+/* Header within Content Box */
+.article-header {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  /* align-items: center; */ /* Removed - handled by children */
+  /* text-align: center; */ /* Removed - handled by children */
+  margin-bottom: 2rem; /* Space below header */
+  padding-bottom: 1.5rem; /* Space below meta info */
+  border-bottom: 1px solid #eee; /* Separator line */
+}
+
+/* .article-meta-left { */ /* No longer needed as a separate container */
+  /* width: 100%; */ /* Removed */
+/* } */
+
+.article-title {
+  max-width: 680px; /* Constrain width like article body */
+  margin-left: auto; /* Center the constrained block */
+  margin-right: auto; /* Center the constrained block */
+  text-align: center; /* Center text within the constrained block */
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 2.5rem; /* Large title */
+  line-height: 1.3;
+  margin-bottom: 1rem; /* Space below title */
+  color: #000; /* Black title */
+}
+
+/* New wrapper for meta and socials */
+.meta-socials-wrapper {
+  display: flex;
+  justify-content: space-between; /* Meta left, Socials right */
+  align-items: center; /* Vertically align items */
+  max-width: 680px; /* Constrain width like article body */
+  margin-left: auto; /* Center the constrained block */
+  margin-right: auto; /* Center the constrained block */
+  width: 100%; /* Ensure it takes up the constrained width */
+  margin-top: 1rem; /* Space below title */
+}
+
+.meta-info {
+  font-size: 0.875rem; /* text-sm */
+  color: #666; /* Gray text */
+  display: flex;
+  /* justify-content: center; */ /* Removed - now aligned left by wrapper */
+  align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 0.5rem; /* Space between items */
+  /* margin-top: 0.5rem; */ /* Removed - wrapper handles spacing */
+}
+
+.meta-info .category {
+  font-weight: 500;
+}
+
+.meta-info .separator {
+  color: #ccc;
+}
+
+.article-socials-right {
+  display: flex;
+  /* justify-content: center; */ /* Removed - now aligned right by wrapper */
+  gap: 0.5rem; /* Mimic sidebar social links */
+  /* margin-top: 1rem; */ /* Removed - wrapper handles spacing */
+  flex-shrink: 0; /* Prevent shrinking */
+  /* width: 100%; */ /* Removed */
+}
+
+.article-socials-right .social-link {
+  background-color: black;
+  color: white;
+  padding: 0.375rem;
+  border-radius: 0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.75rem;
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* Wrapper for Overview + Body */
+.article-main-content-wrapper {
+  display: flex;
+  gap: 3rem; /* Adjust gap between overview and body */
+  align-items: flex-start; /* Align items to the top */
+  margin-top: 2rem; /* Add space above this section */
+}
+
+/* Overview Section Styles */
+.overview-section {
+  flex: 0 0 200px; /* Fixed width for overview: Don't grow, don't shrink, base width 200px */
+  position: sticky; /* Make it sticky */
+  top: 2rem; /* Adjust top offset from viewport top */
+  padding-right: 1rem; /* Add some padding to separate from body visually */
+}
+
+.overview-title {
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #000; /* Ensure title color */
+}
+
+.overview-list {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  margin: 0;
+}
+
+.overview-list li {
+  margin-bottom: 0.5rem;
+}
+
+.overview-list li {
+  margin-bottom: 0.5rem;
+  /* Add padding to the list item itself to contain the negative indent */
+  padding-left: 1.2rem;
+  /* Use text-indent to create the hanging effect */
+  text-indent: -1.2rem;
+}
+
+.overview-link {
+  text-decoration: none;
+  color: #555;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+  display: inline; /* Change display to inline to flow with the bullet */
+}
+
+.overview-link::before {
+  content: '• '; /* Add bullet point */
+  color: #aaa; /* Lighter color for bullet */
+  /* Remove margin-right, spacing is handled by text-indent/padding */
+  /* margin-right: 0.25rem; */
+  /* Ensure bullet doesn't indent */
+  display: inline-block; /* Keep bullet separate */
+  width: 1.2rem; /* Match the indent value */
+}
+
+.overview-link:hover {
+  color: #000;
+}
+
+
+/* Article Body - Updated for Flex Layout */
+.article-body {
+  max-width: 680px; /* Keep constrained width */
+  /* margin-left: auto; */ /* Already centered */
+  /* margin-right: auto; */ /* Already centered */
+  flex-grow: 1; /* Allow body to take remaining space if needed */
+  min-width: 0; /* Prevent flex item overflow */
+  line-height: 1.7;
+  color: #333;
+  padding-top: 1rem; /* Add some space above the first paragraph */
+}
+
+/* Style for the quote in the new layout */
+.article-quote {
+  font-style: italic;
+  color: #555; /* Slightly lighter color */
+  text-align: center; /* Center align */
+  margin-bottom: 2rem; /* Space below the quote */
+  padding: 0 1rem; /* Optional padding */
+  font-size: 1.15rem; /* Slightly larger than normal text */
+  line-height: 1.6;
+}
+
+/* REMOVED the special styling for the first paragraph */
+/* .article-body > .article-paragraph:first-of-type { ... } */
+
+.article-paragraph {
+  margin-bottom: 1.5rem;
+}
+
+/* Ensure first paragraph styling doesn't affect sections if they are first */
+.article-body > .article-section:first-of-type ~ .article-paragraph:first-of-type {
+    font-size: 1rem;
+    font-style: normal;
+    color: #333;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+/* Styles for .article-section, .section-image, .section-title, .section-text */
+/* are now in src/components/ArticleSection/ArticleSection.css */
+
+/* Style for potential subtitle (if data structure changes later) */
+/* .section-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+} */
+
+/* Loading State */
+.loading {
+  text-align: center;
+  padding: 50px;
+  font-size: 1.2rem;
+  color: #777;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .article-header-image {
+    height: 40vh; /* Smaller image on smaller screens */
+  }
+  .article-content-box {
+    padding: 2rem;
+    margin-top: -8vh;
+  }
+  .article-title {
+    font-size: 2rem;
+  }
+  .article-title {
+    font-size: 2rem;
+    max-width: 100%; /* Allow full width on mobile */
+  }
+  .meta-socials-wrapper {
+    flex-direction: column; /* Stack meta and socials */
+    gap: 1rem; /* Add space between stacked items */
+    max-width: 100%; /* Allow full width */
+  }
+  .meta-info {
+    justify-content: center; /* Center meta items when stacked */
+  }
+  .article-socials-right {
+     justify-content: center; /* Center social items when stacked */
+  }
+  /* .article-header { */
+    /* No changes needed here now */
+  /* } */
+  /* .article-socials-right { */
+    /* No changes needed here now */
+  /* } */
+  /* .article-meta-left { */
+     /* No longer exists */
+  /* } */
+  .article-main-content-wrapper {
+    flex-direction: column; /* Stack overview and body */
+    gap: 1rem; /* Reduce gap when stacked */
+  }
+  .overview-section {
+    flex-basis: auto; /* Reset flex basis */
+    width: 100%; /* Take full width */
+    position: static; /* Remove sticky positioning */
+    margin-bottom: 2rem; /* Add space below overview */
+    padding-right: 0; /* Remove padding */
+    border-bottom: 1px solid #eee; /* Add separator */
+    padding-bottom: 1.5rem; /* Add padding below */
+  }
+  .article-body {
+    max-width: 100%; /* Allow full width on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .article-header-image {
+    height: 30vh;
+  }
+   .article-content-box {
+    padding: 1.5rem;
+    margin-top: -6vh;
+  }
+  .article-title {
+    font-size: 1.6rem;
+  }
+  .meta-info {
+    font-size: 0.8rem;
+  }
+  .meta-socials-wrapper {
+    gap: 0.75rem; /* Slightly reduce gap */
+  }
+  /* .section-title responsive style moved to ArticleSection.css */
+}

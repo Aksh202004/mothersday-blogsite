@@ -1,0 +1,161 @@
+.home-page {
+  /* Styles for the overall home page container if needed */
+}
+
+/* Remove hero section margin if carousel is full width */
+.hero-section {
+  /* margin-bottom: 40px; */ /* Remove margin */
+  margin-bottom: 0;
+}
+
+.category-section,
+.recent-articles-section {
+  margin-bottom: 50px; /* More space between sections */
+}
+
+/* Section Title Container */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+/* Section Titles - style like sketch */
+.section-header h2, /* Target h2 within the header */
+.recent-articles-section h2 { /* Keep styling for other sections if needed */
+  font-size: 1.8rem; /* Larger */
+  color: #000; /* Black color */
+  font-weight: normal; /* Normal weight */
+  font-family: serif; /* Serif font */
+  text-transform: none; /* No uppercase */
+  letter-spacing: normal;
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0; /* Remove margin from h2 itself */
+  display: block;
+}
+
+/* Style for the category link to remove default link styling */
+.explore-category-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent (the h2) */
+}
+
+.explore-category-link:hover h2 {
+  /* Optional: Add hover effect if desired */
+  /* text-decoration: underline; */
+  /* color: #555; */
+}
+
+
+/* Category Nav Buttons */
+.category-nav-buttons button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.2s;
+}
+.category-nav-buttons button:hover {
+  background-color: #333;
+}
+
+/* Hide Featured Stories H2 if Carousel has title */
+.hero-section h2 {
+  display: none; /* Assuming carousel handles its own title/context */
+}
+
+/* Wrapper for category carousel */
+.category-list-wrapper {
+  overflow: hidden; /* Hide categories outside the wrapper */
+  width: 100%; /* Ensure it takes full width */
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping to keep items in one line */
+  gap: 10px;
+  /* Remove justify-content: center; as we want it to start from left */
+  /* Add transition for smoother sliding effect */
+  transition: transform 0.4s ease-in-out; /* Adjust duration and timing function as needed */
+}
+
+/* Style for the active category card */
+.category-card-active {
+  background-color: #000; /* Example active style */
+  color: #fff;
+}
+
+
+.main-content-area {
+  display: grid;
+  /* Adjust grid to give more space to articles, less to sidebar */
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr);
+  gap: 40px; /* Increase gap */
+}
+
+.article-list {
+  display: grid;
+  gap: 40px; /* More space between article cards */
+  grid-template-columns: 1fr; /* Force single column layout like sketch */
+}
+
+/* Placeholder styles - Keep for now */
+.placeholder-section {
+  background-color: #eee;
+  padding: 40px;
+  text-align: center;
+  border-radius: 5px;
+  color: #777;
+}
+
+.category-card-placeholder { /* Keep for reference if needed */
+  background-color: #f0f0f0;
+  padding: 15px 25px;
+  border-radius: 20px;
+  text-align: center;
+  color: #666;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.category-card-placeholder:hover {
+  background-color: #e0e0e0;
+}
+
+.article-card-placeholder { /* Keep for reference if needed */
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.sidebar-placeholder { /* Keep for reference if needed */
+  background-color: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  height: fit-content;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Adjust breakpoint */
+  .main-content-area {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); /* Adjust ratio */
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content-area {
+    grid-template-columns: 1fr; /* Stack articles and sidebar */
+  }
+  .sidebar { /* Target actual sidebar */
+    margin-top: 40px; /* Add space when stacked */
+  }
+}

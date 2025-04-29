@@ -1,0 +1,301 @@
+/* General Sidebar Styles */
+.sidebar {
+  /* Add any overall sidebar container styles if needed */
+  /* Example: background-color: #f9f9f9; */
+  /* Example: padding: 20px; */
+}
+
+/* General Widget Styles */
+.sidebar-widget {
+  margin-bottom: 2rem; /* mb-8 */
+  border: 1px solid #000; /* border, changed to black */
+  padding: 1.5rem; /* p-6 */
+}
+
+/* Remove bottom margin from the last widget */
+.sidebar-widget:last-child {
+  margin-bottom: 0;
+}
+
+/* A. Author Profile Box */
+.author-profile-box {
+  /* Inherits .sidebar-widget styles */
+}
+
+.author-image-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.author-image-placeholder {
+  width: 6rem; /* w-24 */
+  height: 6rem; /* h-24 */
+  border-radius: 9999px; /* rounded-full */
+  background-color: #e5e7eb; /* bg-gray-200 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af; /* text-gray-400 for SVG/placeholder */
+  font-size: 2rem; /* Make placeholder icon visible */
+}
+
+.author-name {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem; /* text-xl */
+  text-align: center; /* text-center */
+  margin-bottom: 0.25rem; /* mb-1 */
+  font-weight: bold; /* Added for emphasis */
+}
+
+.author-bio {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* text-sm */
+  text-align: center; /* text-center */
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.follow-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.follow-button {
+  /* Mimic Button variant="outline" size="sm" rounded-none */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0; /* rounded-none */
+  font-size: 0.875rem; /* size="sm" */
+  padding: 0.5rem 0.75rem; /* size="sm" */
+  border: 1px solid #d1d5db; /* variant="outline" - example border */
+  background-color: transparent;
+  color: #374151; /* Example text color */
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.follow-button:hover {
+  background-color: #f9fafb; /* Example hover */
+}
+
+.social-links-container {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem; /* space-x-2 equivalent */
+  margin-top: 1rem; /* mt-4 */
+}
+
+.social-link {
+  background-color: black; /* bg-black */
+  color: white; /* text-white */
+  padding: 0.375rem; /* p-1.5 */
+  border-radius: 0.125rem; /* rounded-sm */
+  display: inline-flex; /* To size correctly */
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem; /* Approx h-4/w-4 + padding */
+  height: 1.75rem; /* Approx h-4/w-4 + padding */
+  font-size: 0.75rem; /* Small text for placeholders */
+  text-decoration: none;
+  line-height: 1;
+}
+
+/* B. Destinations List */
+.destinations-list {
+  /* Inherits .sidebar-widget styles, but remove border/padding */
+  border: none;
+  padding: 0;
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+.destinations-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem; /* text-xl */
+  margin-bottom: 1rem; /* mb-4 */
+  font-weight: bold;
+}
+
+.destinations-grid {
+  display: grid;
+  /* Remove gap, borders will handle spacing */
+  gap: 0.5rem; 
+  border-top: 1px solid white; /* Add top border to the container */
+}
+
+.destination-link {
+  position: relative; /* Needed for absolute positioning of line if used */
+  background-color: black; /* bg-black */
+  color: white; /* text-white */
+  padding-top: 1.5rem; /* Increased padding */
+  padding-bottom: 1.5rem; /* Increased padding */
+  display: flex;
+  flex-direction: column; /* Stack line and text vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border-bottom: 1px solid white; /* White border between items */
+}
+
+/* Style for the line above the text */
+.destination-line {
+  display: block;
+  width: 30px; /* Adjust width as needed */
+  height: 1px;
+  background-color: white;
+  margin-bottom: 0.5rem; /* Space between line and text */
+}
+
+.destination-link:hover {
+  background-color: #333; /* Darker hover */
+}
+
+/* Style for the Read More button */
+.destination-read-more {
+  background-color: black; /* bg-black */
+  color: white; /* text-white */
+  padding-top: 0.75rem; /* py-3 */
+  padding-bottom: 0.75rem; /* py-3 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border: none; /* Remove default button border */
+  width: 100%; /* Make it full width like links */
+  cursor: pointer;
+  font-size: inherit; /* Match link font size */
+  font-family: inherit; /* Match link font family */
+  /* No bottom border needed for the button */
+}
+
+.destination-read-more:hover {
+  background-color: #333; /* Darker hover */
+}
+
+/* C. Newsletter Signup Box */
+.newsletter-box {
+  /* Inherits .sidebar-widget styles */
+}
+
+.newsletter-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem; /* text-xl */
+  margin-bottom: 1rem; /* mb-4 */
+  font-weight: bold;
+}
+
+.newsletter-description {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* text-sm */
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.newsletter-form {
+  display: grid;
+  gap: 1rem; /* gap-4 */
+}
+
+/* D. "Where to next?" Form Box */
+.where-to-next-box {
+  /* Inherits .sidebar-widget styles */
+  /* No mb-8 as it's the last item */
+}
+
+.where-to-next-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 1.25rem; /* text-xl */
+  line-height: 1.75rem; /* text-xl */
+  margin-bottom: 1rem; /* mb-4 */
+  font-weight: bold;
+}
+
+.where-to-next-description {
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* text-sm */
+  color: #4b5563; /* text-gray-600 */
+  margin-bottom: 1rem; /* mb-4 */
+}
+
+.where-to-next-form {
+  display: grid;
+  gap: 1rem; /* gap-4 */
+}
+
+/* Common Form Styles (for Newsletter & Where to next) */
+.form-group {
+  /* Container for label + input */
+}
+
+.form-label {
+  font-size: 0.75rem; /* text-xs */
+  line-height: 1rem; /* text-xs */
+  display: block; /* block */
+  margin-bottom: 0.25rem; /* mb-1 */
+  color: #4b5563; /* Example label color */
+}
+
+.form-input,
+.form-textarea {
+  width: 100%; /* w-full */
+  border: 1px solid #d1d5db; /* border - example color */
+  padding: 0.5rem; /* p-2 */
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem; /* text-sm */
+  border-radius: 0.125rem; /* Slight rounding for inputs */
+}
+
+.form-textarea {
+  resize: vertical; /* Allow vertical resize */
+}
+
+.subscribe-button,
+.submit-button {
+  /* Mimic Button variant="default" rounded-none bg-black hover:bg-gray-800 text-white w-full */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0; /* rounded-none */
+  font-size: 0.875rem; /* Default button size */
+  padding: 0.6rem 1rem; /* Default button padding */
+  border: 1px solid black; /* Ensure border matches bg */
+  background-color: black; /* bg-black */
+  color: white; /* text-white */
+  width: 100%; /* w-full */
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.subscribe-button:hover,
+.submit-button:hover {
+  background-color: #1f2937; /* hover:bg-gray-800 */
+  border-color: #1f2937;
+}
+
+/* --- Cleanup Old Styles --- */
+/* Remove styles associated with the previous sidebar structure if they exist */
+.sidebar h4,
+.sidebar ul,
+.sidebar li,
+.author-image, /* Old class */
+.newsletter button, /* Old selector */
+.where-to-next-form select /* Old selector */
+{
+  /* Add 'display: none;' or remove the rules completely */
+  /* For safety, let's just reset some basics */
+  margin: 0;
+  padding: 0;
+  border: none;
+  list-style: none;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  background: none;
+}

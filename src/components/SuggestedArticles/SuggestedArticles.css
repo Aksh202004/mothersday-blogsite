@@ -1,0 +1,116 @@
+.suggested-articles-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  border-top: 1px solid #eee; /* Add separator from content above */
+  margin-top: 3rem; /* Add space above */
+  /* Container class handles max-width and centering */
+}
+
+.suggested-articles-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 1.8rem; /* Match other section titles */
+  margin-bottom: 2rem;
+  text-align: center; /* Center title */
+  color: #000;
+}
+
+.suggested-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 2rem; /* Adjust gap between cards */
+}
+
+.suggested-article-card {
+  /* Styles for each card */
+}
+
+.suggested-article-image-link {
+ display: block; /* Make link a block for layout */
+ margin-bottom: 1rem;
+}
+
+.suggested-article-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10; /* Adjust aspect ratio if needed */
+  background-color: #f0f0f0; /* Placeholder background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 2rem;
+}
+
+.suggested-article-meta {
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.suggested-article-meta .category {
+  font-weight: 500;
+}
+
+.suggested-article-meta .separator {
+  color: #ccc;
+}
+
+.suggested-article-title {
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif; /* font-serif */
+  font-size: 1.2rem; /* Adjust title size */
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+}
+
+.suggested-article-title a {
+  color: #000;
+  text-decoration: none;
+}
+
+.suggested-article-title a:hover {
+  text-decoration: underline;
+}
+
+.suggested-article-excerpt {
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+ 
+}
+
+.suggested-article-read-more {
+  display: inline-block;
+  background-color: #000; /* Black button */
+  color: #fff; /* White text */
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 0; /* Square corners */
+  border: none;
+  font-size: 0.85rem;
+  transition: background-color 0.2s;
+}
+
+.suggested-article-read-more:hover {
+  background-color: #333; /* Darker black on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  .suggested-articles-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  }
+}
+
+@media (max-width: 600px) {
+  .suggested-articles-grid {
+    grid-template-columns: 1fr; /* 1 column */
+  }
+   .suggested-articles-title {
+     font-size: 1.5rem;
+   }
+}

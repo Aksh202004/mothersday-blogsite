@@ -1,0 +1,116 @@
+.instagram-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+.instagram-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+
+.follow-button-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.follow-instagram-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  font-size: 0.875rem;
+  padding: 0.6rem 1rem;
+  border: 1px solid black;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-weight: 500;
+}
+
+.follow-instagram-button:hover {
+  background-color: #1f2937;
+  border-color: #1f2937;
+}
+
+.follow-instagram-button .icon-placeholder {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  display: inline-block;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.25rem;
+}
+
+.instagram-grid-item {
+  aspect-ratio: 1 / 1;
+  background-color: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.instagram-grid-item .image-placeholder {
+  color: #9ca3af;
+  font-size: 1.5rem;
+}
+
+
+.hover-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagram-grid-item:hover .hover-overlay {
+  opacity: 1;
+}
+
+.overlay-content {
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+}
+
+.stats-item .icon-placeholder {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.25rem;
+  display: inline-block;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+.stats-item .heart-icon {
+  color: white;
+}
+
+.stats-text {
+  font-size: 0.875rem;
+}
