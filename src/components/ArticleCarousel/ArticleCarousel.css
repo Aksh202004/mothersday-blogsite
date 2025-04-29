@@ -85,5 +85,12 @@
 }
 
 @media (max-width: 576px) {
-   
+   /* Make items wider on small mobile screens to prevent overlap */
+   .article-carousel-item {
+     width: 80%; /* Show one main card clearly */
+   }
+   /* Remove negative margin on small screens */
+   .article-carousel-item .article-card {
+     margin-left: 0;
+   }
 }
