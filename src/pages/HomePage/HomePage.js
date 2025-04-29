@@ -9,11 +9,12 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import GuideSection from '../../components/GuideSection/GuideSection';
 import Pagination from '../../components/Pagination/Pagination';
 import { Link } from 'react-router-dom';
+import { useCallback } from 'react';
 
-// Helper function to shuffle an array (Fisher-Yates/Knuth Shuffle)
+
 const shuffleArray = (array) => {
   let currentIndex = array.length, randomIndex;
-  const newArray = [...array]; // Create a copy to avoid mutating the original import
+  const newArray = [...array];
 
   while (currentIndex !== 0) {
     randomIndex = Math.floor(Math.random() * currentIndex);
@@ -36,16 +37,24 @@ const HomePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [categoryStartIndex, setCategoryStartIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 576);
+  const [categoryItemWidth, setCategoryItemWidth] = useState(130);
+  const categoryListRef = useRef(null);
   const articlesPerPage = 6;
-  const categoriesToShow = 6;
+  const categoriesToShowDesktop = 6;
 
   useEffect(() => {
-    // Load and shuffle articles once on mount
+    const checkMobile = () => setIsMobile(window.innerWidth <= 576);
+    window.addEventListener('resize', checkMobile);
+    checkMobile();
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
     const shuffledArticles = shuffleArray(articlesData);
     setAllArticles(shuffledArticles);
   }, []);
 
-  // Effect to handle filtering based on category and search query
   useEffect(() => {
     let articlesToFilter = allArticles;
 
@@ -63,40 +72,64 @@ const HomePage = () => {
     }
 
     setFilteredArticles(articlesToFilter);
-    setCurrentPage(1); // Reset page whenever filters change
+    setCurrentPage(1);
 
-    // Scroll to recent articles section only when search becomes active
     const queryIsActive = searchQuery && searchQuery.trim() !== '';
     if (queryIsActive && !hasScrolledForSearch.current && recentArticlesRef.current) {
       recentArticlesRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      hasScrolledForSearch.current = true; // Mark that we've scrolled for this search activation
+      hasScrolledForSearch.current = true;
     } else if (!queryIsActive) {
-      hasScrolledForSearch.current = false; // Reset scroll tracking when search is cleared
+      hasScrolledForSearch.current = false;
     }
 
   }, [searchQuery, selectedCategory, allArticles]);
 
-
-  // Handle category selection
   const handleCategorySelect = (category) => {
      if (selectedCategory === category) {
-       // If clicking the *same* specific category again, treat it as clicking "All"
        setSelectedCategory(null);
      } else {
        setSelectedCategory(category);
      }
   };
 
-  // Category Carousel Logic
+  const measureCategoryItemWidth = useCallback(() => {
+    if (categoryListRef.current && categoryListRef.current.children.length > 1) {
+      const firstItem = categoryListRef.current.children[0];
+      const secondItem = categoryListRef.current.children[1];
+      const widthWithGap = secondItem.offsetLeft - firstItem.offsetLeft;
+      setCategoryItemWidth(widthWithGap > 0 ? widthWithGap : 130);
+    } else if (categoryListRef.current && categoryListRef.current.children.length === 1) {
+       const firstItem = categoryListRef.current.children[0];
+       setCategoryItemWidth(firstItem.offsetWidth > 0 ? firstItem.offsetWidth + 15 : 130);
+    }
+  }, []);
+
+  useEffect(() => {
+    measureCategoryItemWidth();
+    window.addEventListener('resize', measureCategoryItemWidth);
+    return () => window.removeEventListener('resize', measureCategoryItemWidth);
+  }, [measureCategoryItemWidth]);
+
+  const categories = [...new Set(allArticles.map(article => article.category))];
+  const totalCategories = categories.length + 1;
+
+  const categoryScrollStep = isMobile ? 3 : categoriesToShowDesktop;
+  const visibleCategoriesEstimate = isMobile ? 3 : categoriesToShowDesktop;
+
   const handleNextCategory = () => {
-    setCategoryStartIndex(prevIndex => Math.min(prevIndex + categoriesToShow, categories.length - categoriesToShow));
+    const maxStartIndex = Math.max(0, totalCategories - visibleCategoriesEstimate);
+    setCategoryStartIndex(prevIndex => Math.min(prevIndex + categoryScrollStep, maxStartIndex));
   };
 
   const handlePrevCategory = () => {
-    setCategoryStartIndex(prevIndex => Math.max(prevIndex - categoriesToShow, 0));
+    setCategoryStartIndex(prevIndex => Math.max(prevIndex - categoryScrollStep, 0));
   };
 
-  // Pagination Logic
+  const translateXValue = -categoryStartIndex * categoryItemWidth;
+
+  const canScrollPrevCategory = categoryStartIndex > 0;
+  const canScrollNextCategory = categoryStartIndex < Math.max(0, totalCategories - visibleCategoriesEstimate);
+
   const totalPages = Math.ceil(filteredArticles.length / articlesPerPage);
   const indexOfLastArticle = currentPage * articlesPerPage;
   const indexOfFirstArticle = indexOfLastArticle - articlesPerPage;
@@ -104,14 +137,17 @@ const HomePage = () => {
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+     if (recentArticlesRef.current) {
+       const rect = recentArticlesRef.current.getBoundingClientRect();
+       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+       const targetPosition = rect.top + scrollTop - 80;
+       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+     } else {
+       window.scrollTo({ top: 0, behavior: 'smooth' });
+     }
   };
 
   const featuredArticles = allArticles.slice(0, 3);
-  const categories = [...new Set(allArticles.map(article => article.category))];
-  const categoryCardWidthEstimate = 130; // Adjust this based on actual CSS/content
-  const translateXValue = -categoryStartIndex * categoryCardWidthEstimate;
-
 
   return (
     <div className="home-page">
@@ -130,25 +166,24 @@ const HomePage = () => {
               <button
                 aria-label="Previous Category"
                 onClick={handlePrevCategory}
-                disabled={categoryStartIndex === 0}
+                disabled={!canScrollPrevCategory}
               >
                 &#10094;
               </button>
               <button
                 aria-label="Next Category"
                 onClick={handleNextCategory}
-                disabled={categoryStartIndex >= categories.length - categoriesToShow}
+                disabled={!canScrollNextCategory}
               >
                 &#10095;
               </button>
             </div>
           </div>
         <div className="category-list-wrapper">
-          <div
+          <div ref={categoryListRef}
             className="category-list"
             style={{ transform: `translateX(${translateXValue}px)` }}
           >
-            {/* "All" Category Button */}
             <div
               className={`category-card ${selectedCategory === null ? 'category-card-active' : ''}`}
               onClick={() => handleCategorySelect(null)}
@@ -177,7 +212,6 @@ const HomePage = () => {
             {currentArticles.map((article, index) => (
               <React.Fragment key={article.id}>
                 <ArticleCard article={article} />
-                {/* Display GuideSection only after the third article on the first page */}
                 {currentPage === 1 && indexOfFirstArticle + index === 2 && <GuideSection />}
               </React.Fragment>
             ))}
